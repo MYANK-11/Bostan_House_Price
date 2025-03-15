@@ -43,3 +43,6 @@ Give your User email that is in your Github Account
 git config --global user.email "your email_id " 
 ```
 
+```
+Note:- Always First write the library in the requirements.txt then we will install them in the new envirnoment using the pip install -r requirements.txt and only then we can import the lib start the code in the app.py or any other file  
+```
