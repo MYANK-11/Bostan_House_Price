@@ -77,6 +77,13 @@ def predict_api():
     # Return the prediction result as JSON
     return jsonify(output[0])
 
+@app.route('/predict',methods=['POST'])
+def predict():
+    data=[float(x)for x in request.form.values()]
+    final_input=scalar.transform(np.array(data).reshape(1,-1))
+    print(final_input)
+    output=model.predict(final_input)[0]
+    return render_template("home.html",prediction_text="The House  Price Prediction is {}".format(output))
 # Run the Flask application
 if __name__ == '__main__':
     app.run(debug=True)  # Enable debug mode for easier debugging
